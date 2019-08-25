@@ -10,7 +10,7 @@ len_b = [i for i in range(len(lista_b))]
 
 import matplotlib.pyplot as plt
 
-fig = pyplot()
-plot(lista_a,len_a,lista_b,len_b)
-plot.title("Random variations")
-plot.legend(["Quase crescente","Quase decrescente"])
+fig = plt.figure()
+fig.plot(lista_a,len_a,lista_b,len_b)
+fig.plot.title("Random variations")
+fig.plot.legend(["Quase crescente","Quase decrescente"])
