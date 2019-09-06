@@ -25,7 +25,16 @@ D = critical_points[3]
 d2 = Derivative(f, x, 2).doit()
 
 
+# The minimum of the following values will be the minima of the function
 print(d2.subs({x:B}).evalf())
 print(d2.subs({x:C}).evalf())
 print(d2.subs({x:A}).evalf())
 print(d2.subs({x:D}).evalf())
+
+
+x_min = -5
+x_max = 5
+f.subs({x:A}).evalf()
+f.subs({x:C}).evalf()
+f.subs({x:x_min}).evalf()
+f.subs({x:x_max}).evalf()
