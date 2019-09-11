@@ -5,12 +5,20 @@ x = Symbol('x')
 Limit(1/x, x, S.Infinity)
 
 l = Limit(1/x, x, S.Infinity)
+
+var = input("For what variable do you want to solve the limit? (maybe x..)\n")
+
+tendence = input("X tends for what? For infinity type infinity, for minus infinity type -infinity\n")
+
+if(tendence == "infinity"):
+    tendence = S.Infinity
+
+elif(tendence == "-infinity"):
+    tendence = S.Infinity*-1
+
 # Using Limit to solve, guess what? Limits!
-# print(l.doit())
+limit_equation = input("Insert the equation that you want to calculate:\n")
 
-# print(Limit(1/x, x, 0, dir='-').doit())
+lim = Limit(limit_equation, var, tendence)
 
-# print(Limit(sin(x)/x, x, 0).doit())
-lim = Limit((x**3 + 3*x**2 -x -3)/(x**3 + -x**2 +2), x, -1)
-# print(help(lim))
 print(lim.doit(hints=True))
