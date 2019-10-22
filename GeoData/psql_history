@@ -1,0 +1,487 @@
+exit/q/q
+\q
+\q
+\q
+\q
+q
+\l
+CREATE DATABASE test
+\l
+CREATE DATABASE test;
+CREATE DATABASE teste;
+\l
+\q
+\q
+\l
+\c teste
+\q
+\l
+\c test
+\d
+SELECT 1 == 2;
+SELECT 1 = 2;
+SELECT 1 >= 2;
+SELECT "FUHR" = "FUHR";
+SELECT 'FUHR' = 'FUHR';
+SELECT * FROM person WHERE last_name = 'Silva';
+SELECT * FROM person WHERE country = 'Brazil';
+SELECT * FROM person WHERE country_of_birth = 'Brazil';
+SELECT * FROM person LIMIT 20;
+SELECT * FROM person LIMIT 2;
+SELECT * FROM person OFFSET 80 LIMIT 8;
+SELECT * FROM person OFFSET FETCH FIRST 5 ROW ONLY;
+SELECT * FROM person FETCH FIRST 5 ROW ONLY;
+SELECT * FROM person WHERE country_of_birth = 'China';
+SELECT *FROM personWHERE country_of_birth IN ('China','France','Brazil');
+SELECT *FROM personWHERE country_of_birth IN ('China','France','Brazil') ORDER BY country_of_birth;
+SELECT *FROM personWHERE country_of_birth IN ('China','France','Brazil') ORDER BY country_of_birth DESC;
+SELECT * FROM personWHERE date_of_birth BETWEEN DATE '2000-01-01' AND '2004-01-01';
+SELECT * FROM personWHERE date_of_birth BETWEEN DATE '2010-01-01' AND '2018-01-01';
+SELECT * FROM personWHERE date_of_birth BETWEEN DATE '2010-01-01' AND '2019-01-01';
+SELECT * FROM person WHERE email LIKE '%.com';
+\q
+\l
+\c test
+\d
+SELECT * FROM person WHERE country_of_birth = 'Brazil';
+\d person
+SELECT * FROM person WHERE email LIKE '%@google.@';
+SELECT * FROM person WHERE email LIKE '%@google.com';
+SELECT * FROM person WHERE email LIKE '%@google.%';
+SELECT * FROM person WHERE email LIKE '%@____.%';
+SELECT * FROM person WHERE country_of_birth ILIKE 'p%';
+SELECT DISTINCT country_of_birth FROM person;
+SELECT country_of_birth FROM person GROUP_BY country_of_birth;
+SELECT country_of_birth,id FROM person GROUP_BY country_of_birth;
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth;
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth ORDER BY country_of_birth;
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 5 ORDER BY country_of_birth;
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 5 ORDER BY COUNT(*);
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 5 ORDER BY COUNT(10);
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 5 ORDER BY COUNT(*);
+\c teste
+\c teste
+\c test
+\d
+\d person
+SELECT country of birth, first_name FROM person;
+SELECT country_of_birth, first_name FROM person;
+SELECT country_of_birth, first_name FROM person GROUP BY country_of_birth;
+SELECT country_of_birth FROM person GROUP BY country_of_birth;
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth;
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 10;
+\h GROUP BY
+\h GROUP
+\h FROM
+\h
+SELECT * FROM person OFFSET 12 LIMIT 22;
+SELECT * FROM person OFFSET 12 LIMIT 22 WHERE country_of_birth LIKE 'C%';
+SELECT * FROM person WHERE country_of_birth LIKE 'C%' OFFSET 10 LIMIT 39;
+SELECT * FROM person WHERE country_of_birth LIKE 'C%' OFFSET 4 LIMIT 39;
+SELECT * FROM person WHERE country_of_birth LIKE 'C%' OFFSET 4 LIMIT 35;
+\i /home/fuhr/Downloads/car.sql 
+DROP TABLE car;
+\i /home/fuhr/Downloads/car.sql 
+DROP TABLE car;
+ls
+\i /home/fuhr/Downloads/car.sql 
+DROP TABLE person;
+DROP TABLE person;
+\i /home/fuhr/Downloads/'person (1).sql'
+\d person
+DROP TABLE person;
+\i /home/fuhr/Downloads/person.sql 
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 10;
+\d
+\?
+SELECT * FROM car;
+SELECT MAC(price) FROM car; 
+SELECT MAX(price) FROM car; 
+SELECT MAX(price),name FROM car; 
+SELECT MAX(price),car.name FROM car; 
+SELECT MAX(price), model FROM car; 
+SELECT AVG(price) FROM car; 
+SELECT ROUND AVG(price) FROM car; 
+SELECT ROUND(AVG(price)) FROM car; 
+SELECT make, model, MIN(price) FROM car GROUP BY make, model; 
+SELECT make, model, MIN(price), MAX(price) FROM car GROUP BY make, model; 
+SELECT make, MIN(price), MAX(price) FROM car GROUP BY make; 
+SELECT make, MIN(price), MAX(price) FROM car GROUP BY make ORDER BY make; 
+SELECT make, MIN(price), AVG(price) FROM car GROUP BY make ORDER BY AVG(price); 
+SELECT make, AVG(price) FROM car GROUP BY make ORDER BY ROUND(AVG(price)); 
+SELECT SUM(price) FROM car;
+SELECT ROUND(SUM(price)) FROM car;
+SELECT make, ROUND(SUM(price)) FROM car GROUP BY make ORDER BY SUM(price);
+SELECT 10 -2;
+SELECT 10 -2;
+SELECT 10 **2;
+SELECT 10 *2;
+SELECT 300^12;
+SELECT 5!;
+SELECT 10%3;
+SELECT 10/3;
+SELECT 10//3;
+SELECT model, price, price * 0.9 FROM car ORDER BY price * 0.9;
+SELECT id,make,model, price, price * 0.9 FROM car ORDER BY price * 0.9;
+SELECT id,make,model, price, ROUND(price * 0.9,2) FROM car ORDER BY price * 0.9;
+SELECT id,make,model, price, ROUND(price * 0.9,2) AS preco_desc FROM car ORDER BY price * 0.9;
+SELECT id,make,model, price, ROUND(price * 0.9,2) AS preco_desc FROM car ORDER BY price * 0.9;
+COALESCE SELECT COALESCE(1);
+COALESCE SELECT COALESCE(1);
+SELECT COALESCE(1);
+SELECT COALESCE(null,null,1,20);
+SELECT COALESCE(null,null,1,20) AS number;
+SELECT * FROM person;
+SELECT email * FROM person; 
+SELECT email FROM person; 
+SELECT COALESCE (email, 'Email not provided') FROM person; 
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT 80/0;
+SELECT NULLIF(10,10);
+SELECT NULLIF(10,11);
+SELECT NULLIF(19,109);
+SELECT COALESCE(SELECT 10 / NULLIF(0,0), 0);
+SELECT COALESCE(10 / NULLIF(0,0), 0);
+SELECT COALESCE(10 / NULLIF(0,0));
+SELECT COALESCE(10 / NULLIF(0,0),9);
+SELECT 10 / NULLIF(0,0);
+SELECT 10 / NULLIF(0,0);
+SELECT NOW();
+SELECT NOW()::DATE;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW()::TIME;
+SELECT NOW() - INTERVAL '1 year' ;
+SELECT NOW() - INTERVAL '65 year' ;
+SELECT NOW() - INTERVAL '62 year' 
+SELECT NOW() - INTERVAL '62 year 10 DAYS' ;
+SELECT (NOW() - INTERVAL '62 year 10 DAYS')::DATE ;
+SELECT EXTRACT(YEAR FROM NOW);
+SELECT EXTRACT(YEAR FROM NOW());
+SELECT first_name, last_name, gender, date_of_birth, EXTRACT(YEAR FROM(AGE(NOW(), date_of_birth))) FROM person;
+SELECT first_name, last_name, gender, country_of_birth, date_of_birth, EXTRACT(YEAR FROM(AGE(NOW(), date_of_birth))) AS age FROM person;
+SELECT first_name, last_name, gender, country_of_birth, date_of_birth, EXTRACT(YEAR FROM(AGE(NOW(), date_of_birth))) AS age FROM person;
+\d person
+ALTER TABLE DROP CONSTRAINT person_pkey;
+ALTER TABLE person DROP CONSTRAINT person_pkey;
+\d person
+ALTER TABLE person ADD PRIMARY KEY (id);
+\d person
+DELETE FROM person WHERE id = 10;
+SELECT FROM person WHERE id = 10;
+SELECT FROM person WHERE id = 11;
+SELECT * FROM person WHERE id = 11;
+SELECT * FROM person WHERE id = 10;
+SELECT email, count(*) FROM person GROUP BY email HAVING COUNT(*) > 1;
+SELECT email, count(*) FROM person GROUP BY first_name HAVING COUNT(*) > 1;
+SELECT first_name, count(*) FROM person GROUP BY first_name HAVING COUNT(*) > 1;
+SELECT first_name, count(*) FROM person GROUP BY first_name HAVING COUNT(*) > 2;
+ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE(email);
+DELETE FROM person WHERE first_name = 'Cobbie';
+SELECT first_name, count(*) FROM person GROUP BY first_name HAVING COUNT(*) > 2;
+\d person
+ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE(email);
+SELECT * FROM person;
+SELECT DISTINCT gender FROM person;
+ALTER TABLE ADD CONSTRAINT gender_constraint CHECK (gender = 'Female' OR gender = 'Male');
+ALTER TABLE person ADD CONSTRAINT gender_constraint CHECK (gender = 'Female' OR gender = 'Male');
+;
+;
+;
+;
+;
+;
+DELETE FROM person;
+\i /home/fuhr/Downloads/person.sql 
+SELECT * FROM person;
+DELETE FROM person WHERE gender = 'Female';
+DELETE FROM person;
+\i /home/fuhr/Downloads/person.sql 
+SELECT * FROM person;
+UPDATE person SET email = 'ralphlaure@gmail.com' WHERE id = 5;
+SELECT * FROM person;
+UPDATE person SET email = 'ralphlaure@gmail.com' WHERE id = 4;
+SELECT * FROM person;
+UPDATE person SET first_name = 'Ralph', last_name = 'Lauren' WHERE id = 5;
+SELECT * FROM person WHERE id = 5;
+SELECT * FROM person WHERE id = 5;
+cleraclear;
+clear;
+SELECT * FROM person WHERE id = 40;
+\d
+\dt
+\dt
+DROP TABLE person DROP TABLE car.cdfafdasvds.;
+\dt
+ALTER TABLE person ADD ;
+ALTER TABLE person ADD ;
+ALTER TABLE personADD CONSTRAINT car_id_owner FOREIGN KEY(car_id) REFERENCES car(id);
+ALTER TABLE personADD BIGINT car_id;
+ALTER TABLE personADD car_id BIGINT;
+\d person
+ALTER TABLE personADD CONSTRAINT car_id_owner FOREIGN KEY(car_id) REFERENCES car(id);
+\d person
+UPDATE car_id = 3 FROM person WHERE id = 1;
+UPDATE car_id = 3 FROM person WHERE id = 1;
+SET car_id = 3 FROM person WHERE id = 1;
+UPDATE person SET car_id = 3 WHERE id = 1;
+SELECT * FROM person WHERE id = 1;
+UPDATE person SET car_id = 6 WHERE id = 2;
+UPDATE person SET car_id = 7 WHERE id = 3;
+SELECT * FROM person LIMIT 5;
+SELECT * FROM person LIMIT 10;
+SELECT * FROM person WHERE id >0 AND id <6;
+;
+UPDATE person SET car_id = 9000 WHERE id = 4;
+JOIN;
+SELECT FROM JOIN(person,car) WHERE person.car_id = car.id;
+SELECT FROM JOIN(person.car_id,car.id) WHERE person.car_id = car.id;
+SELECT JOIN(person.car_id,car.id) WHERE person.car_id = car.id;
+SELECT * FROM PERSON;
+SELECT * FROM car;
+SELECT * FROM personJOIN car ON person.car_id = car.id;
+SELECT * FROM personJOIN car ON person.car_id = car.id;
+\x
+SELECT * FROM personJOIN car ON person.car_id = car.id;
+SELECT person.firs_name, car.make, car.model, car.price FROM personJOIN car ON person.car_id = car.id;
+SELECT person.first_name, car.make, car.model, car.price FROM personJOIN car ON person.car_id = car.id;
+SELECT * FROM personJOIN car ON person.car_id = id;
+SELECT * FROM personJOIN car ON person.car_id = car.id;
+SELECT * FROM personLEFT JOIN car ON person.car_id = car.id;
+SELECT * FROM personLEFT JOIN car ON person.car_id = car.idWHERE car.* IS NULL;
+SELECT * FROM personRIGHT JOIN car ON person.car_id = car.id;
+UPDATE person SET car_id = 13 WHERE first_name = 'John';
+DELETE FROM car WHERE id = 13;
+CASCADE DELETE FROM car WHERE id = 13;
+CASCADE DELETE FROM car WHERE id = 13;
+DELETE FROM person WHERE first_name = 'John';
+DELETE FROM car WHERE id = 13;
+SELECT * FROM personJOIN car ON car.id = person.car_id;
+\copy (SELECT * FROM person JOIN car ON car.id = person.car_id) TO /home/fuhr/Documents/donos_de_carro.csv DELIMITER ',' CSV HEADER; 
+SELECT * FROM person_id_seq;
+\dt person 
+\d person
+SELECT nextval('person_id_seq'::regclass);
+SELECT nextval('person_id_seq'::regclass);
+SELECT nextval('person_id_seq'::regclass);
+SELECT nextval('person_id_seq'::regclass);
+SELECT nextval('person_id_seq'::regclass);
+SELECT nextval('person_id_seq'::regclass);
+SELECT nextval('person_id_seq'::regclass);
+SELECT nextval('person_id_seq'::regclass);
+SELECT nextval('person_id_seq'::regclass);
+SELECT * FROM person;
+insert into person (first_name, last_name, email, gender, date_of_birth, country_of_birth) values ( 'Dela', 'Cape', 'dcaperr@jimdo.com', 'Female', '1934-01-29', 'Indonesia');
+insert into person (first_name, last_name, email, gender, date_of_birth, country_of_birth) values ( 'Dela', 'Cape', 'dcaperr@jimdo.com', 'Female', '1934-01-29', 'Indonesia');
+ALTER SEQUENCE person_id_seq RESTART WITH 1000;
+insert into person (first_name, last_name, email, gender, date_of_birth, country_of_birth) values ( 'Dela', 'Cape', 'dcaperr@jimdo.com', 'Female', '1934-01-29', 'Indonesia');
+ALTER SEQUENCE person_id_seq RESTART WITH 1010;
+
+w
+SELECT * FROM pg_a;
+SELECT * FROM pg_a;
+SELECT * FROM pg_available_extension;
+SELECT * FROM pg_available_extension;
+SELECT * FROM pg_available_extensions;
+\help
+\?
+\x off
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+SELECT * FROM pg_available_extensions;
+SELECT * FROM pg_available_extensions ORDER BY name;
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+SELECT uuid_generate_v4();
+\i /home/fuhr/Downloads/car-person.sql 
+\d
+SELECT * from car;
+DROP TABLE carl;
+DROP TABLE car;
+DROP ... CASCADE TABLE car;
+DROP CASCADE TABLE car;
+DROP*  CASCADE TABLE car;
+DROP person CASCADE TABLE car;
+DROP TABLE person;
+DROP TABLE car;
+\i /home/fuhr/Downloads/car-person.sql 
+\i /home/fuhr/Downloads/car-person.sql 
+DROP TABLE person;
+DROP TABLE car;
+\i /home/fuhr/Downloads/car-person.sql 
+DROP TABLE person;
+DROP TABLE car;
+\i /home/fuhr/Downloads/car-person.sql 
+SELECT * FROM person;
+\d person;
+SELECT * FROM car LIMIT 10;
+UPDATE person SET car_uid = '12f9fbaa-7c23-454b-8faa-b59d12a2f2d2' WHERE person.first_name = 'Cobbie';
+UPDATE person SET car_id = '12f9fbaa-7c23-454b-8faa-b59d12a2f2d2' WHERE person.first_name = 'Cobbie';
+UPDATE person SET car_id = '12f9fbaa-7c23-454b-8faa-b59d12a2f2d2' WHERE person.first_name = 'John';
+UPDATE person SET car_id = '4343035d-5325-479a-951f-3904655fe3ed' WHERE person.first_name = 'Ommar';
+UPDATE person SET car_id = '4343035d-5325-479a-951f-3904655fe3ed' WHERE person.first_name = 'Adriana';
+SELECT * FROM;
+SELECT * FROMperson JOIN car ON car.car_uid = person.car_id;
+SELECT * FROM pg_available_extensions ORDER BY name;
+  |                   | data types for international product numbering standardsCREATE EXTENSION postgis;
+CREATE EXTENSION postgis;
+exit
+\q
+CREATE EXTENSION postgis;
+\f
+\df
+SELECT postgis_full_version();
+\i /home/fuhr/Downloads/
+\i /home/fuhr/Downloads/postgis-workshop-2018/data/nyc_census_blocks.shp
+\q
+CREATE DATABASE gisdb;
+CREATE SCHEMA gis;
+CREATE EXTENSION postgis;
+SELECT postgis_full_version();
+SELECT postgis_full_version();
+SELECT * FROM spatial_ref_sys;
+ls
+\d
+\d
+\l
+\c gisdb
+]d
+\d
+\d
+\c
+\c
+\l
+\d
+\l
+DROP TABLE gisdb;
+DROP TABLE gisdb;
+\d
+\dt
+\q
+\d
+\dt
+SELECT * from spatial_ref_sys LIMIT 1;
+\x
+SELECT * from spatial_ref_sys LIMIT 1;
+DROP TABLE spatial_ref_sys;
+\q
+\d
+\dt
+SELECT * FROM spatial_ref_sys LIMIT 10;
+/x;
+:x
+\x
+;
+SELECT * FROM spatial_ref_sys LIMIT 1;
+\f
+\f
+SELECT * FROM available_functions();
+SELECT * FROM available_functions;
+history;
+\q
+\r
+\help
+\help SELECT
+\q
+\t
+\t
+\d
+\dt
+\l
+CREATE TABLE new_york_streets(gid integer, code smallint, name_varchar(32),shape_leng numeric, shape_area numeric, geom geometry);
+CREATE TABLE new_york_streets(gid integer,code smallint, name_varchar(32),shape_leng numeric, shape_area numeric, geom geometry);
+CREATE TABLE new_york_streets(gid integer,code smallint, name varchar(32),shape_leng numeric, shape_area numeric, geom geometry);
+\q
+\l
+\l
+ld]d
+\d
+DROP TABLE new_york_streets;
+DROP TABLE new_york_streets;
+
+CREATE TABLE new_york_streets(gid integer, code smallint, name_varchar(32),shape_leng numeric, shape_area numer c, geom geometry);
+CREATE TABLE world_country(gid integer, code smallint, name varchar(32),shape_leng numeric, shape_area numer c, geom geometry);
+CREATE TABLE world_country(gid integer, code smallint, name varchar(32),shape_leng numeric, shape_area numer c, geom geometry);
+CREATE TABLE world_country(gid integer, code smallint, name varchar(32),shape_leng numeric, shape_area numeric, geom geometry);
+\q
+\l
+\d world_country 
+SELECT * FROM world_country ;
+DROP TABLE world_country;
+CREATE TABLE united_states(gid integer, code smallint, name varchar(32),shape_leng numeric, shape_area numeric, geom geometry);
+\q
+\i /home/fuhr/Downloads/continentsshp3172/USA.sql 
+\i /home/fuhr/Downloads/continentsshp3172/USA.sql 
+SET STANDARD_CONFORMING_STRINGS TO ON;
+BEGIN;
+CREATE TABLE "united_states_bound" (gid serial,"objectid" varchar(9),"vertexcou" varchar(19),"iso" varchar(3),"name_0" varchar(75),"name_1" varchar(75),"varname_1" varchar(150),"nl_name_1" varchar(50),"hasc_1" varchar(15),"type_1" varchar(50),"engtype_1" varchar(50),"validfr_1" varchar(25),"validto_1" varchar(25),"remarks_1" varchar(125),"region" varchar(100),"regionvar" varchar(254),"provnumber" varchar(4),"nev_countr" varchar(100),"first_fips" varchar(254),"first_hasc" varchar(254),"fips_1" varchar(254),"gadm_level" varchar(19),"checkme" varchar(4),"region_cod" varchar(50),"region_c_1" varchar(50),"scalerank" varchar(4),"region_c_2" varchar(50),"region_c_3" varchar(50),"country_pr" varchar(128),"datarank" varchar(4),"abbrev" varchar(10),"postal" varchar(10),"area_sqkm" varchar(19),"sameascity" varchar(4),"adm0_a3" varchar(3),"map_color" varchar(4),"labelrank" varchar(4),"shape_leng" varchar(19),"shape_area" varchar(21));
+CREATE TABLE "united_states_bound" (gid serial,"objectid" varchar(9),"vertexcou" varchar(19),"iso" varchar(3),"name_0" varchar(75),"name_1" varchar(75),"varname_1" varchar(150),"nl_name_1" varchar(50),"hasc_1" varchar(15),"type_1" varchar(50),"engtype_1" varchar(50),"validfr_1" varchar(25),"validto_1" varchar(25),"remarks_1" varchar(125),"region" varchar(100),"regionvar" varchar(254),"provnumber" varchar(4),"nev_countr" varchar(100),"first_fips" varchar(254),"first_hasc" varchar(254),"fips_1" varchar(254),"gadm_level" varchar(19),"checkme" varchar(4),"region_cod" varchar(50),"region_c_1" varchar(50),"scalerank" varchar(4),"region_c_2" varchar(50),"region_c_3" varchar(50),"country_pr" varchar(128),"datarank" varchar(4),"abbrev" varchar(10),"postal" varchar(10),"area_sqkm" varchar(19),"sameascity" varchar(4),"adm0_a3" varchar(3),"map_color" varchar(4),"labelrank" varchar(4),"shape_leng" varchar(19),"shape_area" varchar(21));
+SET STANDARD_CONFORMING_STRINGS TO ON;
+BEGIN;
+CREATE TABLE "united_states_bound" (gid serial,"objectid" varchar(9),"vertexcou" varchar(19),"iso" varchar(3),"name_0" varchar(75),"name_1" varchar(75),"varname_1" varchar(150),"nl_name_1" varchar(50),"hasc_1" varchar(15),"type_1" varchar(50),"engtype_1" varchar(50),"validfr_1" varchar(25),"validto_1" varchar(25),"remarks_1" varchar(125),"region" varchar(100),"regionvar" varchar(254),"provnumber" varchar(4),"nev_countr" varchar(100),"first_fips" varchar(254),"first_hasc" varchar(254),"fips_1" varchar(254),"gadm_level" varchar(19),"checkme" varchar(4),"region_cod" varchar(50),"region_c_1" varchar(50),"scalerank" varchar(4),"region_c_2" varchar(50),"region_c_3" varchar(50),"country_pr" varchar(128),"datarank" varchar(4),"abbrev" varchar(10),"postal" varchar(10),"area_sqkm" varchar(19),"sameascity" varchar(4),"adm0_a3" varchar(3),"map_color" varchar(4),"labelrank" varchar(4),"shape_leng" varchar(19),"shape_area" varchar(21));
+\d
+\d
+\d
+;
+\d
+\d
+\l
+\q

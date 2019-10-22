@@ -10,7 +10,7 @@ import pandas as pd
 #        'Área queimada em 2014', 'Área queimada em 2013',
 #        'Área queimada em 2012'],
 def main():
-    data = pd.read_csv("DIMIF-queima.csv",delimiter=";",decimal='.')
+    data = pd.read_excel("DIMIF-queima.csv",delimiter=";",decimal='.')
     areas_hec = data['Área estimada da UC (ha)']
     areas_queimada = data['Área queimada em 2016']
 
