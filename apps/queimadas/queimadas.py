@@ -20,8 +20,11 @@ def data_cleaning(data):
     
     return clean_data
 
-st.title('Queimadas em parques de preservação no Brasil')
+st.subheader('Este banco de dados foi o que causou certo alvoroço na relação entre o governo brasileiro e o INPE, veja o motivo a seguir:')
 
+st.title('Estudo sobre as queimadas em parques de preservação no Brasil')
+st.subheader('Este programa tem como intuito facilitar a visualização dos dados abertos disponibilizados pelo governo brasileiro sobre as queimadas')
+st.subheader('Por padrão o mesmo exibe dados de todos os parques de preservação do Brasil, mas o usuário pode especificar a regiao de coordenação do parque ou o bioma desejado')
 @st.cache
 def load_data():
     data = pd.read_csv("DIMIF-queima.csv",delimiter=";",decimal=',')
@@ -30,6 +33,7 @@ def load_data():
 
 data_cached = load_data()
 data = data_cached.copy()
+
 
 if st.checkbox("Selecionar dados por bioma ou coordenação em especifico"):
     filtro = st.selectbox("Selecionar dados atraves da sua coordenação ou bioma?", options=["Coordenação","Bioma"])
@@ -43,12 +47,18 @@ if st.checkbox("Selecionar dados por bioma ou coordenação em especifico"):
         estado = st.selectbox("Selecionar a coordenação desejada",estados)
         data = data[data["Coordenação Regional do ICMBio"] == estado]
         
-
-if st.checkbox("Visualizar os dados sobre as queimadas no Brasil ou no Bioma especificado"):
+st.subheader('As informações desse conjunto de dados encontravam-se originalmente desorganizadas, como se pode ver a seguir clicando no checkbox "Visualizar TODOS os dados"')
+if st.checkbox("Visualizar TODOS os dados sobre as queimadas no Brasil ou no Bioma especificado"):
 	st.subheader("Dados sobre queimadas no Brasil")
 	st.write(data)
+texto = "\n\nA seção a seguir é a mais importante do programa, é quando a porcentagem de área desmatada nos parques selecionados é exibida:"
+st.subheader("Descrição:")
+st.write(texto)
 
-st.subheader("Area total de cada reserva em hectares")
+problema = "\n\nOs dados causaram certo estranhamento nos governantes, pois alguns parques tiveram 200% a 300% de suas areas totais desmatadas segundo os sensores do INPE\n\nExemplo: Selecionar o Bioma Cerrado e verificar o PARNA do Araguaia"
+st.subheader("Descrição do problema com os dados:")
+st.write(problema)
+st.subheader("Area total de cada reserva em hectares e a porcentagem de area queimada durante o período de 2012 a 2018")
 
 def queimadas_totais(data):
     areas_hec = data_cleaning(data['Área estimada da UC (ha)'])
@@ -76,9 +86,9 @@ for total, queimado, nome in zip(areas_hec,data["areas_queimadas"],data["Nome da
 resultado = pd.DataFrame(resultado)
 st.write(resultado.sort_values(by=['%_de_queimadas'],ascending=False))
 
-st.header("Visualizar graficamente a quantidade de queimadas por Parque de preservação:")
+st.header("Visualizar graficamente a quantidade de queimadas por Parque de preservação em cada ano de sensoriamento:")
 parques = data_cached["Nome da UC"]
-parque = st.selectbox("Selecionar a coordenação desejada",parques)
+parque = st.selectbox("Selecionar o parque desejado:",parques)
 parque_data = data_cached[data_cached["Nome da UC"] == parque]
 
 def gera_dados_individuais(parque_data):
@@ -103,3 +113,21 @@ anos = gera_anos(2019)
 plt.plot(anos,queimadas_parque)
 
 st.pyplot()
+
+objetivo = "Este projeto tem como objetivo demonstrar as minhas habilidades para explorar dados diversos e encontrar diferentes padrões nos mesmos"
+st.subheader("Objetivo deste projeto:")
+st.write(objetivo)
+
+tecnologias = "Foram utilizadas tecnologias como a linguagem de programação Python e suas bibliotecas de exploração de dados como a Pandas\n\nPara a criação do aplicativo online, a biblioteca Streamlit foi utilizada, é uma biblioteca desenvolvida por veteranos da Google que faz o desenvolvimento de aplicativos que envolvam Data Science e Machine Learning seja mais ágil para o programador.\n\nPara a hospedagem do aplicativo, está sendo utilizada a plataforma Amazon Web Services."
+st.subheader("Tecnologias utilizadas:")
+st.write(tecnologias)
+
+st.subheader("Desenvolvido por:")
+st.title("Gabriel Tobias Fuhr")
+st.subheader("http://www.github.com/gtfuhr")
+
+st.subheader("Dados utilizados:")
+st.write("http://dados.gov.br/dataset/incendios-em-ucs")
+
+st.subheader("Código:")
+st.write("http://www.github.com/gtfuhr/ml/tree/master/apps/queimadas")
