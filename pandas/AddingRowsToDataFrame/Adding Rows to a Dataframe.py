@@ -68,8 +68,13 @@ print(appended_df)
 
 print(concatenated_df.reset_index(drop=True) == appended_df.reset_index(drop=True))
 
+movie_data.iloc[2] = new_movie.iloc[0]
+print(movie_data)
+
 movie_data.loc[2] = new_movie.loc[0]
 print(movie_data)
+
+print(movie_data.loc[movie_data['imdb_rating'] > 8.0])
 
 
 from sklearn.datasets import fetch_openml
@@ -80,12 +85,9 @@ raw_data = fetch_openml("credit-g")
 # After fetching it, let's take the name of data features
 features = raw_data["feature_names"]
 
-# The name of the data to be predicted
-target_name = raw_data["target_names"][0]
-
 # Create a Dataframe with the downloaded data
 df = pd.DataFrame(data=raw_data["data"], columns=features)
-df[target_name] = raw_data["target"]
+df["target"] = raw_data["target"]
 
 # Here we select the first 600 samples of the DataFrame 
 # by using the useful pythonic slicing feature
