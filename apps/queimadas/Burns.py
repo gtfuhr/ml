@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[13]:
-
-
 import pandas as pd
 
 # Data attribs
@@ -50,10 +47,3 @@ def main():
         
 if __name__ == "__main__":
     main()
-
-
-# In[2]:
-
-
-
-
